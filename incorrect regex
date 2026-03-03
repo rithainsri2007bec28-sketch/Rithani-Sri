@@ -1,0 +1,12 @@
+import re
+
+for _ in range(int(input())):
+    try:
+        pattern = input()
+        if '*+' in pattern or '++' in pattern or '?+' in pattern:
+            print(False)
+        else:
+            re.compile(pattern)
+            print(True)
+    except re.error:
+        print(False)
