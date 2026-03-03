@@ -1,0 +1,11 @@
+import numpy
+
+n, m = map(int, input().split())
+
+arr = numpy.array([input().split() for _ in range(n)], int)
+
+sum_axis_0 = numpy.sum(arr, axis=0)
+
+result = numpy.prod(sum_axis_0)
+
+print(result)
