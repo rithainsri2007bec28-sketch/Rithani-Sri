@@ -1,0 +1,12 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import numpy as np
+
+# 1. Read matrix dimension N
+n = int(input())
+
+# 2. Read matrix elements and convert to NumPy array
+matrix = np.array([input().split() for _ in range(n)], float)
+
+# 3. Calculate determinant and round to 2 decimal places
+det = np.linalg.det(matrix)
+print(round(det, 2))
