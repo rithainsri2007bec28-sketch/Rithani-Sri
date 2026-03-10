@@ -1,0 +1,19 @@
+import re
+
+def is_valid_credit_card(card):
+    if not re.match(r"^[456]\d{3}(-?\d{4}){3}$", card):
+        return False
+    
+    clean_card = card.replace("-", "")
+    if re.search(r"(\d)\1{3,}", clean_card):
+        return False
+        
+    return True
+
+n = int(input())
+for _ in range(n):
+    card_number = input().strip()
+    if is_valid_credit_card(card_number):
+        print("Valid")
+    else:
+        print("Invalid")
