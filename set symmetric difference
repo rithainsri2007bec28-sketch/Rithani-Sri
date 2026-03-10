@@ -1,0 +1,9 @@
+n_english = int(input())
+english_set = set(map(int, input().split()))
+
+n_french = int(input())
+french_set = set(map(int, input().split()))
+
+either_but_not_both = english_set.symmetric_difference(french_set)
+
+print(len(either_but_not_both))
