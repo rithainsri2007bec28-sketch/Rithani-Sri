@@ -1,0 +1,9 @@
+import re
+
+n, m = map(int, input().split())
+matrix = [input() for _ in range(n)]
+
+decoded_string = "".join([matrix[i][j] for j in range(m) for i in range(n)])
+
+pattern = r'(?<=[a-zA-Z0-9])[^a-zA-Z0-9]+(?=[a-zA-Z0-9])'
+print(re.sub(pattern, ' ', decoded_string))
