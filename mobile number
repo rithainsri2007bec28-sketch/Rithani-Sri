@@ -1,0 +1,23 @@
+def wrapper(f):
+    def fun(l):
+        standardized = []
+        for n in l:
+            # Safely grab the last 10 digits to ignore any prefix
+            clean_num = n[-10:]
+            # Format as +91 xxxxx xxxxx
+            formatted_num = "+91 " + clean_num[:5] + " " + clean_num[5:]
+            standardized.append(formatted_num)
+        
+        # Pass the standardized list to the original function
+        f(standardized)
+       
+    return fun
+
+
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l) 
